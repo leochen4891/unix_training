@@ -63,27 +63,26 @@ eval $filtering_2
 echo 
 
 echo "------------------------------------------------------------------------"
-echo ""
-echo ""
-echo ""
+echo "3. Use the commands ps, cut, sort, uniq, and head to create a single piped"
+echo "command that displays the user ID of the non-root user which owns the"
+echo "most processes on your system"
 echo 
 
 # Requirements:
-# 1.1 
-# 1.2 
-# 1.3 
-# 1.4 
-# 1.5 
+# 1.1 single piped command
+# 1.2 use ps, cut, sort, uniq, and head
+# 1.3 displays the user ID of the non-root user
+# 1.4 the user owns the most processses
 
 # create the test files
-
+# N/A
 
 # build the command
 echo "command:"
-filtering_=''
-echo $filtering_
+filtering_3='ps -ef| cut -d" " -f1| sort | uniq -c|sort -rg|sed -e 's/^[[:space:]]*//'|cut -d" " -f2|grep -v "\broot\b"|head -n 1'
+echo $filtering_3
 echo 
 
 echo "result:"
-eval $filtering_
+eval $filtering_3
 echo 
